@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.hdfc.capstoneproject.employee.dto.EmployeeDTO;
 import com.hdfc.capstoneproject.employee.entity.Employee;
+import com.hdfc.capstoneproject.employee.exception.EmployeeNotFoundException;
 import com.hdfc.capstoneproject.employee.repository.EmployeeRepository;
 @Service
 public class EmployeeServiceImplementation implements IEmployeeService {
@@ -13,10 +14,10 @@ public class EmployeeServiceImplementation implements IEmployeeService {
 	EmployeeRepository employeeRepository;
 
 	@Override
-	public EmployeeDTO getEmployeeById(long employeeId) {
+	public EmployeeDTO getEmployeeById(long employeeId) throws EmployeeNotFoundException {
 		Employee employee = employeeRepository.findById(employeeId).orElse(null);
 		if (employee == null) {
-	        throw new RuntimeException("Employee not found");
+	        throw new EmployeeNotFoundException();
 	    }
 		return mapToDto(employee);
 	}

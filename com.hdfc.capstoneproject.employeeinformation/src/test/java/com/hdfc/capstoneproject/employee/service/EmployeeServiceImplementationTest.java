@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.hdfc.capstoneproject.employee.dto.EmployeeDTO;
 import com.hdfc.capstoneproject.employee.entity.Employee;
+import com.hdfc.capstoneproject.employee.exception.EmployeeNotFoundException;
 @SpringBootTest
 class EmployeeServiceImplementationTest {
 
@@ -18,7 +19,7 @@ class EmployeeServiceImplementationTest {
 	IEmployeeService service;
 	
 	@Test
-	void testGetEmployeeById() {
+	void testGetEmployeeById() throws EmployeeNotFoundException {
 	long employeeId = 1L;
 	Employee employee =new Employee();
 	employee.setEmployeeId(employeeId);
