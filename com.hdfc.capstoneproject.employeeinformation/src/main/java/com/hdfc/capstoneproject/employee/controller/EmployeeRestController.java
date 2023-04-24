@@ -17,13 +17,13 @@ import com.hdfc.capstoneproject.employee.service.IEmployeeService;
 @RestController
 @RequestMapping("/capstone/project")
 public class EmployeeRestController {
-
+//https://localhost:8585/capstone/project/get/employee/5
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeRestController.class);
 	@Autowired
 	IEmployeeService service;
 	
 	@GetMapping("/get/employee/{employeeId}")
-	public EmployeeDTO getEmployeeById(@PathVariable long employeeId) throws EmployeeNotFoundException {
+	public EmployeeDTO getEmployeeById(@PathVariable long employeeId) throws Exception {
 		LOGGER.info("Web service called by getEmployeeById at {}", LocalDateTime.now());
 		return service.getEmployeeById(employeeId);
 	}

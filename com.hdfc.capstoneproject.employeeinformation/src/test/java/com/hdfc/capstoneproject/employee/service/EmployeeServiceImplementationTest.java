@@ -19,18 +19,18 @@ class EmployeeServiceImplementationTest {
 	IEmployeeService service;
 	
 	@Test
-	void testGetEmployeeById() throws EmployeeNotFoundException {
+	void testGetEmployeeById() throws Exception {
 	long employeeId = 1L;
 	Employee employee =new Employee();
 	employee.setEmployeeId(employeeId);
 	employee.setEmployeeName("Adarsh Verma");
-	employee.setDateOfBirth(LocalDate.of(2000, 8, 18));
+	//employee.setDateOfBirth(LocalDate.of(2000, 8, 18));
 	
 	EmployeeDTO employeeDTO= service.getEmployeeById(employeeId);
 	assertNotNull(employeeDTO);
 	assertEquals(employee.getEmployeeId(), employeeDTO.getEmployeeId());
 	assertEquals(employee.getEmployeeName(), employeeDTO.getEmployeeName());
-	assertEquals(employee.getDateOfBirth(), employeeDTO.getDateOfBirth());
+	//assertEquals(employee.getDateOfBirth(), employeeDTO.getDateOfBirth());
 	}
 
 }

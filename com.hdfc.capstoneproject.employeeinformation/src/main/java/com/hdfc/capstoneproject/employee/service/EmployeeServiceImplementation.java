@@ -14,7 +14,7 @@ public class EmployeeServiceImplementation implements IEmployeeService {
 	EmployeeRepository employeeRepository;
 
 	@Override
-	public EmployeeDTO getEmployeeById(long employeeId) throws EmployeeNotFoundException {
+	public EmployeeDTO getEmployeeById(long employeeId) throws Exception {
 		Employee employee = employeeRepository.findById(employeeId).orElse(null);
 		if (employee == null) {
 	        throw new EmployeeNotFoundException();
@@ -23,7 +23,7 @@ public class EmployeeServiceImplementation implements IEmployeeService {
 	}
 
 	
-	private EmployeeDTO mapToDto(Employee employee) {
+	private EmployeeDTO mapToDto(Employee employee) throws Exception {
 		EmployeeDTO employeeDTO = new EmployeeDTO();
 		employeeDTO.setEmployeeId(employee.getEmployeeId());
 		employeeDTO.setEmployeeName(employee.getEmployeeName());

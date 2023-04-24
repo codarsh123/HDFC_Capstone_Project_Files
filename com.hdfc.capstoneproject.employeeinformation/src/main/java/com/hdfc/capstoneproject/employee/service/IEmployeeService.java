@@ -5,5 +5,5 @@ import com.hdfc.capstoneproject.employee.exception.EmployeeNotFoundException;
 
 public interface IEmployeeService {
 
-	public EmployeeDTO getEmployeeById(long employeeId) throws EmployeeNotFoundException;
+	public EmployeeDTO getEmployeeById(long employeeId) throws EmployeeNotFoundException,Exception;
 }
