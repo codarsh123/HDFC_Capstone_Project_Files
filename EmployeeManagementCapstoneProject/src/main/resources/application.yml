@@ -1,0 +1,6 @@
+server:
+  ssl:
+    key-store: classpath:capstonepro.jks 
+    key-store-password: pass123
+    key-password: pass123
+  port: 8443

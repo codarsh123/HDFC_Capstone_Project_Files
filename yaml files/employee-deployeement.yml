@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-management-system-deployment
+spec:
+  selector:
+    matchLabels:
+      app: employee-management-system
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: employee-management-system
+    spec:
+      containers:
+        - name: employee-management-system-container
+          image: mandocker1234/newjenkinskube:latest
+          ports:
+            - containerPort: 8386
+          env:   # Setting Enviornmental Variables
+            - name: DB_HOST   # Setting Database host address from configMap
+              value: mysql
+
+            - name: DB_NAME  # Setting Database name from configMap
+              value: employee_information_database
+
+            - name: DB_USERNAME  # Setting Database username from Secret
+              value: root
+
+            - name: DB_PASSWORD # Setting Database password from Secret
+              value: capstone
